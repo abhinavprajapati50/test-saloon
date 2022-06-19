@@ -17,7 +17,7 @@ upload/images/
 
 # Log files
 *.log
-
+.cache/
 # Package files
 *.jar
 
