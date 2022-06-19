@@ -79,7 +79,8 @@ export const Login = ({ setIsLoggedIn }) => {
     setPassError(true);
     validation();
     try {
-      const result = await axios.post("http://localhost:5000/signin", {
+      // const result = await axios.post("http://localhost:5000/signin", {
+      const result = await axios.post("/signin", {
         email: email,
         password: password,
       });

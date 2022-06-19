@@ -107,7 +107,8 @@ date, time, remark, status[requested, confirmed, rejected] */
 
     try {
       const result = await axios.post(
-        "http://localhost:5000/admin/appontment",
+        // "http://localhost:5000/admin/appontment",
+        "/admin/appontment",
         {
           first_name,
           last_name,
@@ -201,9 +202,11 @@ date, time, remark, status[requested, confirmed, rejected] */
 
   const allDataHandler = async () => {
 
-    let allMenu = await axios.get("http://localhost:5000/admin/allmenu");
+    let allMenu = await axios.get("/admin/allmenu");
+    // let allMenu = await axios.get("http://localhost:5000/admin/allmenu");
     setmenuData(allMenu.data.data);
-    let allPages = await axios.get("http://localhost:5000/admin/allpages");
+    let allPages = await axios.get("/admin/allpages");
+    // let allPages = await axios.get("http://localhost:5000/admin/allpages");
     setpages(allPages.data.data);
   }
 

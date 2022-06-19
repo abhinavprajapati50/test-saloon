@@ -54,7 +54,8 @@ export const GetAppointment = () => {
       formData.append(`chr_delete`, chr_delete);
       formData.append(`parentMenu`, parentMenu);
       const result = await axios.post(
-        "http://localhost:5000/admin/allpages",
+        "/admin/allpages",
+        // "http://localhost:5000/admin/allpages",
         formData
       );
       console.log(result);

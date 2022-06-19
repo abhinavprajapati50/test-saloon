@@ -139,7 +139,8 @@ export const ManagePages = ({ set }) => {
 
   const apiFunc = async () => {
     try {
-      const result = await axios.get("http://localhost:5000/admin/allpages");
+      const result = await axios.get("/admin/allpages");
+      // const result = await axios.get("http://localhost:5000/admin/allpages");
       setdata(result.data.data);
       return result;
     } catch (error) {
@@ -156,13 +157,15 @@ export const ManagePages = ({ set }) => {
   const allMenuHandler = async () => {
     let allMenu = await axios
       // .get("http://localhost:5000/admin/allmenu")
-      .get("http://localhost:5000/admin/allmenu");
+      .get("/admin/allmenu");
+   
     setmenuData(allMenu.data.data);
     return allMenu;
   }
 
   const allServices = async () => {
-    let allservice = await axios.get("http://localhost:5000/admin/allservice");
+    let allservice = await axios.get("/admin/allservice");
+    // let allservice = await axios.get("http://localhost:5000/admin/allservice");
     setServiceData(allservice.data.data);
     return allservice;
   }
@@ -204,7 +207,8 @@ export const ManagePages = ({ set }) => {
     try {
       console.log(updatedDetails);
       const result = await axios.put(
-        `http://localhost:5000/admin/allpages/delete/${updatedDetails.id}`
+        `/admin/allpages/delete/${updatedDetails.id}`
+        // `http://localhost:5000/admin/allpages/delete/${updatedDetails.id}`
       );
       setchr_delete(1);
       apiFunc();
@@ -238,7 +242,8 @@ export const ManagePages = ({ set }) => {
       console.log(formData);
       // const pageData = { title, slug, description, images, chr_delete, parentMenu, parentService  }
       const result = await axios.post(
-        "http://localhost:5000/admin/allpages",
+        "/admin/allpages",
+        // "http://localhost:5000/admin/allpages",
         formData
       );
       console.log(result);
@@ -275,7 +280,8 @@ export const ManagePages = ({ set }) => {
       formData.append(`parentService`, parentService);
       console.log(updateState);
       const result = await axios.put(
-        `http://localhost:5000/admin/allpages/${updateState}`,
+        `/admin/allpages/${updateState}`,
+        // `http://localhost:5000/admin/allpages/${updateState}`,
         formData
       );
       toast.success("Page sucessfully Updated");

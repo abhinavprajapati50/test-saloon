@@ -25,9 +25,11 @@ function App({ routesDynamicNav }) {
   const [subPages, setsubPages] = useState([]);
   const [childMenu, setchildMenu] = useState([]);
   const allDataHandler = async () => {
-    let allMenu = await axios.get("http://localhost:5000/admin/allmenu");
+    // let allMenu = await axios.get("http://localhost:5000/admin/allmenu");
+    let allMenu = await axios.get("/admin/allmenu");
     setmenuData(allMenu.data.data);
-    let allPages = await axios.get("http://localhost:5000/admin/allpages");
+    // let allPages = await axios.get("http://localhost:5000/admin/allpages");
+    let allPages = await axios.get("/admin/allpages");
     setpages(allPages.data.data);
 
   }

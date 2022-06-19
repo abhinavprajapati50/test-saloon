@@ -153,7 +153,8 @@ export const ManageAppointment = () => {
 
   const allAppointmentHandler = async () => {
 
-    const appointmentData = await axios.get(`http://localhost:5000/admin/appontment`)
+    // const appointmentData = await axios.get(`http://localhost:5000/admin/appontment`)
+    const appointmentData = await axios.get(`/admin/appontment`)
     console.log(appointmentData);
     setappointmentData(appointmentData.data.data)
     

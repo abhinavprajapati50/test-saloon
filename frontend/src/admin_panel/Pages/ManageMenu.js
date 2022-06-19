@@ -224,7 +224,7 @@ export const ManageMenu = ({ setadminPanel }) => {
 
     let allMenu = await axios
       // .get("http://localhost:5000/admin/allmenu")
-      .get("http://localhost:5000/admin/allmenu");
+      .get("/admin/allmenu");
     console.log(allMenu.data.data);
     setdata(allMenu.data.data);
   
@@ -245,7 +245,8 @@ export const ManageMenu = ({ setadminPanel }) => {
     try {
       // confirm("Are you sure you want to delete Menu")
       const result = await axios.put(
-        `http://localhost:5000/admin/allmenu/delete/${deleteddata.id}`
+        `/admin/allmenu/delete/${deleteddata.id}`
+        // `http://localhost:5000/admin/allmenu/delete/${deleteddata.id}`
       );
       setchr_delete(1);
       console.log(result);
@@ -265,7 +266,8 @@ export const ManageMenu = ({ setadminPanel }) => {
     }
     try {
       const result = await axios.post(
-        "http://localhost:5000/admin/managemenu",
+        // "http://localhost:5000/admin/managemenu",
+        "/admin/managemenu",
         {
           title: title,
           parent_Menu: parent_Menu,
@@ -298,7 +300,8 @@ export const ManageMenu = ({ setadminPanel }) => {
       formData.append("title", title);
       formData.append("parent_Menu", parent_Menu);
       const result = await axios.put(
-        `http://localhost:5000/admin/allmenu/${updateState}`,
+        // `http://localhost:5000/admin/allmenu/${updateState}`,
+        `/admin/allmenu/${updateState}`,
         { title: title, parent_Menu: parent_Menu }
       );
       console.log(updateState);

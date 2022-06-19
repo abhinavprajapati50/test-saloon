@@ -129,7 +129,8 @@ export const Manage_Services = ({ set }) => {
 
   const apiFunc = async () => {
     try {
-      const result = await axios.get("http://localhost:5000/admin/allservice");
+      // const result = await axios.get("http://localhost:5000/admin/allservice");
+      const result = await axios.get("/admin/allservice");
       setdata(result.data.data);
       return result;
     } catch (error) {
@@ -162,7 +163,8 @@ export const Manage_Services = ({ set }) => {
     try {
       console.log(updatedDetails);
       const result = await axios.put(
-        `http://localhost:5000/admin/allservice/delete/${updatedDetails.id}`
+        // `http://localhost:5000/admin/allservice/delete/${updatedDetails.id}`
+        `/admin/allservice/delete/${updatedDetails.id}`
       );
       setchr_delete(1);
       apiFunc();
@@ -195,7 +197,8 @@ export const Manage_Services = ({ set }) => {
       formData.append("parent_id", parentService);
       formData.append(`chr_delete`, chr_delete);
       const result = await axios.post(
-        "http://localhost:5000/admin/allservice",
+        // "http://localhost:5000/admin/allservice",
+        "/admin/allservice",
         formData
       );
 
@@ -231,7 +234,8 @@ export const Manage_Services = ({ set }) => {
       formData.append("long_description", long_description);
       console.log(updateState);
       const result = await axios.put(
-        `http://localhost:5000/admin/allservice/${updateState}`,
+        `/admin/allservice/${updateState}`,
+        // `http://localhost:5000/admin/allservice/${updateState}`,
         formData
       );
       console.log("=======UPLOAD DATA RESULT ", result.data);

@@ -22,7 +22,8 @@ export const TableComponent = ({
 
   const allAppointmentHandler = async () => {
 
-    const appointmentData = await axios.get(`http://localhost:5000/admin/appontment`)
+    const appointmentData = await axios.get(`/admin/appontment`)
+    // const appointmentData = await axios.get(`http://localhost:5000/admin/appontment`)
     console.log(appointmentData);
     setdata(appointmentData.data.data)
     setstatus(2)
@@ -49,7 +50,8 @@ export const TableComponent = ({
   const handleApproved = async (data) => {
     try {
       let result = await axios.put(
-        `http://localhost:5000/admin/appontment/aprooved/${data.id}`
+        // `http://localhost:5000/admin/appontment/aprooved/${data.id}`
+        `/admin/appontment/aprooved/${data.id}`
       );
       setstatus(1);
       // handleApproved()
@@ -63,7 +65,8 @@ export const TableComponent = ({
     try {
       // console.log("data", data);
       let rejectedData = await axios.put(
-        `http://localhost:5000/admin/appontment/reject/${data.id}`
+        // `http://localhost:5000/admin/appontment/reject/${data.id}`
+        `/admin/appontment/reject/${data.id}`
       );
       setstatus(0);
       return rejectedData;

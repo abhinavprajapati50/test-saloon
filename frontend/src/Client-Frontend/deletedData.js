@@ -1,20 +1,4 @@
 
-{/* <>
-  {menuData.filter((curSubMenu) => (
-    <>
-      <Menu {...bindMenu(popupState)}>
-        <MenuItem onClick={popupState.close}>
-          {curParMenu.id === curSubMenu.parent_Menu ? (
-            <Button> {console.log(curSubMenu.title)}</Button>
-          ) : (
-            ""
-          )}
-        </MenuItem>
-      </Menu>
-    </>
-  ))}
-</>; */}
-
 
 
 // -------------------------------
@@ -43,11 +27,14 @@ export const NavBar_Frontend = ({ setIsLoggedIn, isLoggedIn }) => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
-  useEffect(async () => {
-    let allMenu = await axios.get("http://localhost:5000/admin/allmenu");
+  const allMenuHandler = async () => {
+    let allMenu = await axios.get("/admin/allmenu");
     setmenuData(allMenu.data.data);
     return allMenu;
+
+  }
+  useEffect(() => {
+    allMenuHandler()
     // .then((result) => setdata(result.data.allData))
     // .catch((errror) => console.log(errror));
   }, []);
@@ -58,7 +45,7 @@ export const NavBar_Frontend = ({ setIsLoggedIn, isLoggedIn }) => {
     //     console.log(subMenuData)
     // ))
   }
-  
+
 
 
   return (
@@ -83,7 +70,7 @@ export const NavBar_Frontend = ({ setIsLoggedIn, isLoggedIn }) => {
                       variant="contained"
                       {...bindTrigger(popupState)}
                       key={curParMenu.id}
-                      onClick={() =>  subMenuHanlder(menuData)}
+                      onClick={() => subMenuHanlder(menuData)}
                     >
                       {curParMenu.title}
                     </Button>
@@ -106,7 +93,7 @@ export const NavBar_Frontend = ({ setIsLoggedIn, isLoggedIn }) => {
                       ))}
                     </> */}
 
-                    
+
                   </>
                 ))}
               </>

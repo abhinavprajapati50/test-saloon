@@ -28,11 +28,16 @@ export const Demoss = () => {
   };
 
   console.log(childMenu);
-
-  React.useEffect(async () => {
-    let allMenu = await axios.get("http://localhost:5000/admin/allmenu");
+  const allMenuHandler = async () => {
+    let allMenu = await axios.get("/admin/allmenu");
+    // let allMenu = await axios.get("http://localhost:5000/admin/allmenu");
     setmenuData(allMenu.data.data);
     return allMenu;
+
+  }
+
+  React.useEffect(() => {
+    allMenuHandler()
   }, []);
 
   return (
@@ -47,7 +52,7 @@ export const Demoss = () => {
             variant="contained"
             {...bindHover(popupState)}
             onMouseOver={() => handleChooseSubMenu(menu.id)}
-            // onMouseOver={() => popupState.open()}
+          // onMouseOver={() => popupState.open()}
           >
             {menu.title}
           </Button>

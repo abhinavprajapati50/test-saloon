@@ -113,7 +113,8 @@ export const Home = ({ setIsLoggedIn, setadmin, admin, isLoggedIn }) => {
               <div className="service1">
                 <div style={{ display: 'flex', width: '100%', height: "20%" }}>
 
-                  <img src={`http://localhost:5000/${curServices.imageUrl}`} alt="" />
+                  <img src={`/${curServices.imageUrl}`} alt="" />
+                  {/* <img src={`http://localhost:5000/${curServices.imageUrl}`} alt="" /> */}
                 </div>
                 <h6>{curServices.title}</h6>
                 <h5> {curServices.short_description} </h5>

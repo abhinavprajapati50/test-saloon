@@ -983,11 +983,14 @@ export const Home = ({ setIsLoggedIn, isLoggedIn }) => {
   };
 
   console.log(childMenu);
-
-  useEffect(async () => {
+  const allMenuHandler = async () => {
     let allMenu = await axios.get("http://localhost:5000/admin/allmenu");
     setmenuData(allMenu.data.data);
     return allMenu;
+
+  }
+  useEffect(() => {
+    allMenuHandler()
   }, []);
 
   const handleOpenNavMenu = (event) => {
@@ -1021,7 +1024,7 @@ export const Home = ({ setIsLoggedIn, isLoggedIn }) => {
                           key={menu.id}
                           variant="contained"
                           {...bindTrigger(popupState)}
-                          // onMouseOver={() => handleChooseSubMenu(menu.id)}
+                        // onMouseOver={() => handleChooseSubMenu(menu.id)}
                         >
                           {menu.title}
                         </Button>
